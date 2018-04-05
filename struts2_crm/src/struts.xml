@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="crm" namespace="/" extends="struts-default" >
+	<!-- <interceptors>
+		<interceptor name="login" class="it.com.intercepter.Loginintercepter"></interceptor>
+		<interceptor-stack name="myStack">
+			<interceptor-ref name="login">
+			 <param name="excludeMethods">login</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>
+	</interceptors>
+	<default-interceptor-ref name="myStack">
+	</default-interceptor-ref>
+	<global-results>
+			<result name="tologin" type="redirect">/login.jsp</result>
+	</global-results>
+	<global-exception-mappings>
+		<exception-mapping result="error" exception="java.lang.RuntimeException"></exception-mapping>
+	</global-exception-mappings> -->
+		<action name="CustomerAction_*" class="it.com.web.action.CustomerAction" method="{1}" >
+			<result name="list">/jsp/customer/list.jsp</result>
+			<result name="toList" type="redirectAction">
+			<param name="actionName">CustomerAction_list</param>
+			<param name="namespace">/</param>
+			</result>
+		</action>
+		<action name="UserAction_*" class="it.com.web.action.UserAction" method="{1}" >
+			<result name="toindex" type="redirect">/index.htm</result>
+			<result name="error">/login.jsp</result>
+		</action>
+		<action name="Dome1" class="it.com.domes.Dome1" >
+			<result name="success">/index.htm</result>
+		</action>
+		<action name="Dome2" class="it.com.domes.Dome2" >
+			<result name="success" type="chain">
+			<param name="actionName">Dome1</param>
+			<param name="namespace">/</param>
+			</result>
+		</action>
+		<action name="Dome3" class="it.com.domes.Dome3" method="execute">
+			<result name="success"  type="dispatcher" >/api.jsp</result>
+		</action>
+		<action name="Dome4" class="it.com.domes.Dome4" method="execute">
+			<result name="success"  type="dispatcher" >/form.jsp</result>
+		</action>
+		<action name="Dome9" class="it.com.domes.Dome9" method="execute">
+			<result name="success"  type="dispatcher" >/tag.jsp</result>
+		</action>
+	</package>
+</struts>

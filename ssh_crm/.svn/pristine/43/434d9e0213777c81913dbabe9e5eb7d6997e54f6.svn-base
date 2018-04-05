@@ -1,0 +1,14 @@
+package it.com.service;
+
+import org.hibernate.criterion.DetachedCriteria;
+
+import it.com.domain.Customer;
+import it.com.utils.pageBean;
+
+public interface CustomerService {
+
+	pageBean getPageBean(DetachedCriteria dc, Integer currentPage, Integer pageSize);
+
+	void save(Customer customer);
+
+}

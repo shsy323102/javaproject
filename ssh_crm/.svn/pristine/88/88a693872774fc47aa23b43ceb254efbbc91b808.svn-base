@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	
+	<constant name="struts.objectFactory" value="spring"></constant>
+	
+	<package name="crm" namespace="/" extends="struts-default">
+<!-- 	
+	<interceptors>
+		<interceptor name="privilegeInterceptor" class="it.com.web.action.PrivilegeInterceptor"></interceptor>
+		<interceptor-stack name="myStack" >
+			<interceptor-ref name="privilegeInterceptor">
+				<param name="excludeMethods">login,rejist</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+		</interceptor-stack>
+	</interceptors>
+	
+	<default-interceptor-ref name="myStack"></default-interceptor-ref>
+-->
+	<global-results>
+		<result name="tologin" type="redirect">/login.jsp</result>
+	</global-results>
+	
+	<global-exception-mappings>
+		<exception-mapping result="error"
+			exception="java.lang.RuntimeException"></exception-mapping>
+	</global-exception-mappings> 
+		<action name="UserAction_*" class="userAction" method="{1}">
+			<result  name="toHome" type="redirect">/index.htm</result>
+			<result name="error">/login.jsp</result>
+			<result name="rejist">/rejist.jsp</result>
+			
+		</action>
+		
+		<action name="CustomerAction_*" class="customerAction" method="{1}">
+			<result name="toEdit">/jsp/customer/add.jsp</result>
+			<result name="list">/jsp/customer/list.jsp</result>		
+			<result name="toList" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">CustomerAction_list</param>
+			</result>
+		</action>
+		
+		<action name="LinkManAction_*" class="linkManAction" method="{1}">
+			<result name="error">/jsp/linkman/debug.jsp</result>
+			<result name="toEdit">/jsp/linkman/add.jsp</result>
+			<result name="list">/jsp/linkman/list.jsp</result>
+			<result name="toList" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">LinkManAction_list</param>
+			</result>		
+		</action>
+		
+		<action name="SaleVisitAction_*" class="saleVisitAction" method="{1}">
+			<result name="toEdit">/jsp/salevisit/add.jsp</result>
+			<result name="list">/jsp/salevisit/list.jsp</result>
+			<result name="toList" type="redirectAction">
+				<param name="namespace">/</param>
+				<param name="actionName">SaleVisitAction_list</param>
+			</result>		
+		</action>
+		
+		<action name="BaseDictAction" class="baseDictAction" method="execute"></action>
+	</package>
+</struts>
+	

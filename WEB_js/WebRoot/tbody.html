@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>My JSP 'Tbody.jsp' starting page</title>
+<script type="text/javascript">
+  function changecolor(id,state){
+    	if(state=="over"){
+    		document.getElementById(id).style.backgroundColor="blue";
+    	}
+    	else if(state=="out"){
+    		document.getElementById(id).style.backgroundColor="white";
+    	}
+    }
+    window.onload = function(){
+    	var id = document.getElementById("tb1");
+    	var len = id.tBodies[0].rows.length;
+    	for(var i=0;i<len;i++){
+    	if(i%2==0){
+    		id.tBodies[0].rows[i].style.backgroundColor="pink";    	
+			}
+		else{
+			id.tBodies[0].rows[i].style.backgroundColor="gold";  
+		}
+    }
+  
+  }
+</script>
+  </head>
+ <body>
+ <table border="1" width="500px" height="300px" id="tb1" align="center">
+	<thead>
+		<tr>
+			<th>张三</th>
+			<th>李四</th>
+			<th>王五</th>
+		</tr>
+     </thead>
+     <tbody>
+		<tr onmouseover="changecolor('tr1','over')" id="tr1" onmouseout="changecolor('tr1','out')">
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+		</tr>
+		<tr onmouseover="changecolor('tr2','over')" id="tr2" onmouseout="changecolor('tr2','out')">
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+		</tr>
+		<tr onmouseover="changecolor('tr3','over')" id="tr3" onmouseout="changecolor('tr3','out')">
+			<th>7</th>
+			<th>8</th>
+			<th>9</th>
+		</tr>
+		<tr onmouseover="changecolor('tr4','over')" id="tr4" onmouseout="changecolor('tr4','out')">
+			<th>10</th>
+			<th>11</th>
+			<th>12</th>
+		</tr>
+        </tbody>
+</table>
+</body>
+</html>

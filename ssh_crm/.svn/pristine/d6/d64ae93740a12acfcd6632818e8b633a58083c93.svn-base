@@ -1,0 +1,30 @@
+package it.com.service.impl;
+import it.com.dao.UserDao;
+import it.com.domain.User;
+import it.com.service.UserService;
+
+public class UserServiceImpl implements UserService{
+
+	private UserDao userDao;
+	public void setUserDao(UserDao userDao) {
+		this.userDao = userDao;
+	}
+
+	@Override
+	public User login(User u) {
+			User exitU = userDao.getByUserCode(u.getUser_code());
+			if(exitU==null){
+				throw new RuntimeException("用户名不存在");
+			}
+			else if(!exitU.getUser_password().equals(u.getUser_password())){
+				throw new RuntimeException("密码错误");
+			}
+			return exitU;
+	}
+
+	@Override
+	public void save(User u) {
+		userDao.save(u);
+	}
+
+}

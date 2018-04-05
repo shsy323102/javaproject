@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd ">
+	<bean name="customerDao" class="it.com.dao.impl.CustomerDaoImp"></bean>
+	<bean name="linkManDao" class="it.com.dao.impl.LinkManDaolmp"></bean>
+	<bean name="UserDao" class="it.com.dao.impl.UserDaolmpl"></bean>
+	<bean name="custmerService" class="it.com.service.impl.CustomerServiceImp">
+		<property name="customerdao" ref="customerDao"></property>
+	</bean>
+	<bean name="linkManService" class="it.com.service.impl.LinkManServicelmp">
+		<property name="csd" ref="customerDao"></property>
+		<property name="lsd" ref="linkManDao"></property>
+	</bean>
+	<bean name="userService" class="it.com.service.impl.UserServiceImp">
+		<property name="userDao" ref="UserDao"></property>
+	</bean>
+</beans>

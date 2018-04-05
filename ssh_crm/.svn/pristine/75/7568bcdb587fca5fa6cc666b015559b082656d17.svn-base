@@ -1,0 +1,15 @@
+package it.com.dao;
+
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+
+import it.com.domain.Customer;
+
+public interface CustomerDao {
+
+	Integer getTotalCount(DetachedCriteria dc);
+
+	List<Customer> getList(DetachedCriteria dc, int start, Integer pageSize);
+
+}

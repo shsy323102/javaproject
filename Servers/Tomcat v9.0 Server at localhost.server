@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<server auto-publish-setting="2" auto-publish-time="1" com.genuitec.eclipse.webclipse.livepreview.enabled="false" deployDir="wtpwebapps" has-configuration="false" hostname="localhost" id="Tomcat v9.0 Server at localhost" java-location="D:\Program Files\myeclipse\binary\com.sun.java.jdk8.win32.x86_64_1.8.0.u66" name="Tomcat v9.0 Server at localhost" runtime-id="Apache Tomcat v9.0" server-location="D:\tomcat" server-type="org.eclipse.jst.server.tomcat.90" server-type-id="org.eclipse.jst.server.tomcat.90" start-timeout="45" stop-timeout="15" testEnvironment="false" timestamp="25" useAutoDeploy="true">
+  <list key="modules" value0="struts2_crm::org.eclipse.jst.jee.server:struts2_crm::jst.web::2.5%%EXPLODED"/>
+</server>

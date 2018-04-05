@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.springframework.org/schema/beans" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd ">
+	<!-- <bean name="user" class="it.com.bean.User" init-method="init" destroy-method="destroy">
+		<property name="name" value="tom"></property>
+		<property name="age" value="18"></property>
+		<property name="car" ref="car"></property>
+	</bean>-->
+	<bean name="car" class="it.com.bean.Car">
+		<property name="name" value="sos"></property>
+	</bean> 
+	<bean name="user2" class="it.com.bean.User">
+		<constructor-arg name="name" value="user2"></constructor-arg>
+		<constructor-arg name="car" ref="car" ></constructor-arg>
+	</bean>
+	<bean name="cb" class="it.com.bean.CollectionBean">
+		<property name="list">
+			<list>
+				<value>A</value>
+				<value>B</value>
+				<value>C</value>
+			</list>
+		</property>
+		<property name="map">
+			<map>
+				<entry key="0" value="Q"></entry>
+				<entry key="1" value="W"></entry>
+				<entry key="2" value="E"></entry>
+			</map>
+		</property>
+		<property name="properties">
+			<props >
+				<prop key="url">www</prop>
+				<prop key="uri">structs</prop>
+			</props>
+		</property>
+	</bean>
+</beans>

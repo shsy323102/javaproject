@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>select.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+	function checkall(){
+	 var checkall = document.getElementById("checkall");
+	 var checks = document.getElementsByName("check"); 
+	 	for(var i=0;i<checks.length;i++){
+	 		checks[i].checked=checkall.checked;
+	 	}
+}
+</script>
+  </head>
+  <body>
+  <table border="1" width="500px" height="300px" id="tb1" align="center">
+	<thead>
+		<tr>
+			<th>张三</th>
+			<th>李四</th>
+			<th>王五</th>
+			<th><input onclick="checkall()" type ="checkbox" id="checkall" > </th>
+		</tr>
+     </thead>
+     <tbody>
+		<tr>
+			<th>1</th>
+			<th>2</th>
+			<th>3</th>
+			<th><input type ="checkbox"  name="check"> </th>
+		</tr>
+		<tr>
+			<th>4</th>
+			<th>5</th>
+			<th>6</th>
+			<th><input type ="checkbox" name="check"> </th>
+		</tr>
+		<tr >
+			<th>7</th>
+			<th>8</th>
+			<th>9</th>
+			<th><input type ="checkbox" name="check"> </th>
+		</tr>
+		<tr>
+			<th>10</th>
+			<th>11</th>
+			<th>12</th>
+			<th><input type ="checkbox" name="check"> </th>
+		</tr>
+        </tbody>
+</table>
+</body>
+</html>

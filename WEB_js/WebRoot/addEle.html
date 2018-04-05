@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>addEle.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript">
+	window.onload=function(){
+		document.getElementById("butn").onclick=function(){
+		var ulEle = document.getElementById("ul");
+		var textEle =	document.createTextNode("深圳");
+		var liEle = document.createElement("li");
+		liEle.appendChild(textEle);
+		ulEle.appendChild(liEle);
+		}
+	}
+</script>
+  </head>
+  
+  <body>
+	  <input type="button" value="添加新城市" id="butn" />
+    <ul id="ul">
+    <li>城市</li>
+    <li>北京</li>
+    <li>上海</li>
+    <li>广东</li>
+    </ul>
+  </body>
+</html>

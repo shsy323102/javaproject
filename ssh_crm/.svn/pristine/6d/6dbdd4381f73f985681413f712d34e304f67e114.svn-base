@@ -1,0 +1,7 @@
+package it.com.dao.impl;
+
+import it.com.dao.CustomerDao;
+import it.com.domain.Customer;
+
+public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDao {	
+}

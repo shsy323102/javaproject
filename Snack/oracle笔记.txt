@@ -1,0 +1,31 @@
+用户名：system
+密码：Ysm82475
+解锁账户：alter user scott account unlock;
+授予权限：grant create table,create view to scott;
+账户名：scott
+密码：tiger
+desc emp|dept|sagrade
+select * from emp|dept|sagrade；
+select sysdate from dual；
+select sum max min avg count(sal) from emp;
+select avg(sal),deptno from emp group by deptno having avg(sal)>2000;
+select a.ename,b.ename from emp a,emp b where a.mgr = b.empno;
+select ename ,dname from emp ,dept where emp.deptno=dept.deptno;
+select ename,dname from emp join dept on emp.deptno=dept.deptno;
+select ename,dname from emp join dept  using(deptno);
+select a.ename,b.ename from emp a left|right|full join emp b on(a.mgr=b.empno);
+select ename from emp where empno in (select mgr from emp);
+select sal from emp where sal not in( select distinct a.sal from emp a join emp b on(a.sal<b.sal));
+select deptno,avg_sal from (select avg(sal) avg_sal,deptno from emp group by deptno ) where avg_sal =(select max(a) from (select avg(sal) a,deptno from emp group by deptno));// 平均薪水部门最高编号 
+创建新用户：
+1.进入目录
+2.exp
+3.账户登陆
+4.create user haojie identified by haojie default tablespace users quota 10M on users;
+5.grant create session,create table,create view to haojie;
+6.imp
+create table emp2 as select * from emp;
+insert into dept2 select * from dept;
+insert into dept2(deptno,dname) values (50,'game');
+
+

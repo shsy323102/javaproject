@@ -1,0 +1,6 @@
+package it.com.dao;
+import it.com.domain.Customer;
+
+public interface CustomerDao extends BaseDao<Customer>{
+
+}

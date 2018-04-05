@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>jquery01.html</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=gbk">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	function wr(){
+	//	document.getElementById("span1").innerHTML="呵呵!";
+	var spEle = document.getElementById("span1");
+	$(spEle).html("呜呜!");
+	}
+	$(function(){
+		$("#js").click(function(){
+	//   $("#span1").html("嘿嘿!");
+	//	$("#span1")[0].innerHTML="哇哇！";
+		$("#span1").get(0).innerHTML="哇哇！";
+		}); 
+	});
+	$(function (){
+	   $("#bot").click(function (){
+	   location.href="jquery.html";
+	   });
+	});
+</script>
+  </head>
+  
+  <body>
+    <input type="button" value="jquery.html" id="bot" />
+    <br><br>
+    <input type="button" value="jswrite"  onclick="wr()"/>
+    <input type="button" value="jqwrite" id="js" />
+    <br>
+     	小明：<span id="span1"> 哈哈 ！</span>
+  </body>
+</html>

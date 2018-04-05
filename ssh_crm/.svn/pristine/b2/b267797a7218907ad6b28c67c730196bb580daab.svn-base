@@ -1,0 +1,49 @@
+package it.com.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Restrictions;
+import org.springframework.orm.hibernate5.HibernateCallback;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+
+import it.com.dao.UserDao;
+import it.com.domain.User;
+
+public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
+	@Override
+	public User getUserByid(Long user_id) {
+		DetachedCriteria dt = DetachedCriteria.forClass(User.class);
+		dt.add(Restrictions.eq("user_id",user_id));
+		List<User> list = (List<User>) getHibernateTemplate().findByCriteria(dt);
+		if(list!=null &&list.size()>0){
+			return list.get(0);
+		}else
+			return null;
+	}
+
+	@Override
+	public void save(User u) {
+		getHibernateTemplate().save(u);
+	}
+
+	@Override
+	public User getByUserCode(String user_code) {
+			return getHibernateTemplate().execute(new HibernateCallback<User>() {
+
+				@Override
+				public User doInHibernate(Session session) throws HibernateException {
+					String hql = "from User where user_code =?";
+					Query query = session.createQuery(hql);
+					query.setParameter(0,user_code);
+					User u = (User) query.uniqueResult();
+					return u;
+				}
+			});
+		}
+	}
+
+

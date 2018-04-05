@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<server DRIVER_CREATED_2="true" HOME_DIR="C:/Users/沉浮/.myeclipse/derby" PORT="1527" derby_autostart_timeout="3000" derby_enable_autostart="true" hostname="localhost" id="com.genuitec.derby.server" id-set="true" me-disable-overview-page="true" name="MyEclipse Derby" server-type="com.genuitec.derby.server" server-type-id="com.genuitec.derby.server" single-instance="true" start-timeout="240" stop-timeout="240" timestamp="7"/>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="gbk" >
+<title></title>
+<script type="text/javascript" src="js/jquery.js"></script>	
+<script type="text/javascript">
+		var cities = new Array(4);
+		cities[0] =	new Array("A","B","C");
+		cities[1] = new Array("E","F");
+		cities[2] = new Array("G","H","I","K");
+		cities[3] = new Array("Q","W","E","R","T");
+	$(function(){
+		$("#prov").change(function(){
+			val = this.value;
+			$("#selectid").empty();
+			$.each(cities,function(i,n){
+				if(i==val){
+				$.each(cities[i],function(j,m){
+					var textEle = document.createTextNode(m);
+					var opEle = document.createElement("option");
+					$(opEle).append(textEle);
+					$(opEle).appendTo("#selectid");
+				});
+				}
+			});
+		});
+	});
+</script>
+</head>
+<body>
+	<form>
+		<select id="prov">
+		<option >请选择省</option>
+		<option value="0">广州</option>
+		<option value="1">北京</option>
+		<option value="2">上海</option>
+		<option value="3">河南</option>
+		</select>
+		<select id="selectid">
+			<option>请选择市</option>
+		</select>
+	</form>
+</body>
+</html>

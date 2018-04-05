@@ -1,0 +1,67 @@
+package it.com.test;
+
+import javax.annotation.Resource;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import it.com.dao.UserDao;
+import it.com.domain.User;
+import it.com.service.UserService;
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration("classpath:applicationContext.xml")
+public class Dome2 {
+	@Resource(name="sessionFactory")
+	private SessionFactory sf ;
+	@Test
+	public void fun1(){
+		Configuration cf = new Configuration().configure();
+		SessionFactory sf = cf.buildSessionFactory();
+		Session session = sf.openSession();
+		 Transaction tx = session.beginTransaction();
+		 tx.begin();
+		 
+		 User u = new User();
+		 u.setUser_name("wanwan");
+		 session.save(u);
+		 
+		 tx.commit();
+		 session.close();
+		 sf.close();
+		
+	}
+	@Test
+	public void fun2(){
+		
+		Session session = sf.openSession();
+		 Transaction tx = session.beginTransaction();
+		 tx.begin();
+		 
+		 User u = new User();
+		 u.setUser_name("wawawas");
+		 session.save(u);
+		 
+		 tx.commit();
+		 session.close();
+	}
+	@Resource(name="userDao")
+	private UserDao ud;
+	@Test
+	public void fun3(){
+		User user = ud.getById(1L);
+		System.out.println(user.getUser_name());
+	}
+	@Resource(name="userService")
+	private UserService us;
+	@Test
+	public void fun4(){
+		 User u = new User();
+		 u.setUser_name("qwe");
+		 us.save(u);
+	}
+}

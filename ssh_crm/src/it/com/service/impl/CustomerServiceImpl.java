@@ -1,0 +1,48 @@
+package it.com.service.impl;
+
+import java.util.List;
+import org.hibernate.criterion.DetachedCriteria;
+import it.com.dao.CustomerDao;
+import it.com.domain.Customer;
+import it.com.service.CustomerService;
+import it.com.utils.PageBean;
+
+public class CustomerServiceImpl implements CustomerService {
+
+	private CustomerDao customerDao;
+	public CustomerDao getCustomerDao() {
+		return customerDao;
+	}
+
+	public void setCustomerDao(CustomerDao customerDao) {
+		this.customerDao = customerDao;
+	}
+
+	public PageBean getPageBean(DetachedCriteria dc, Integer currentPage, Integer pageSize) {
+		
+		Integer totalCount = customerDao.getTotalCount(dc);
+		PageBean pb = new PageBean(currentPage, totalCount, pageSize);
+		List<Customer> list = customerDao.getList(dc,pb.getStart(),pb.getPageSize());
+		pb.setList(list);
+		return pb;
+		
+	}
+
+	@Override
+	public void save(Customer customer) {
+		customerDao.saveOrUpdate(customer);
+	}
+
+
+	@Override
+	public Customer getById(Long cust_id) {
+		return customerDao.getById(cust_id);
+	}
+
+	@Override
+	public List<Object[]> indutryCount() {
+		return customerDao.indutryCount();
+	}
+
+
+}

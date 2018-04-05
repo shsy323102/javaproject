@@ -1,0 +1,11 @@
+package it.com.dao;
+
+import it.com.domain.User;
+
+public interface UserDao {
+	User getUserByid(Long user_id);
+
+	void save(User u);
+
+	User getByUserCode(String usercode);
+}
